@@ -19,12 +19,13 @@ kind create cluster
 Docker images pull on your local
 ```
 docker pull nginx:1.14.2
+docker pull busybox:1.28
 ```
 
 Docker images can be loaded into your cluster nodes with:
 
 ```
-kind load docker-image nginx:1.14.2
+kind load docker-image nginx:1.14.2 busybox:1.28
 ```
  
 ## 2. Create a Namespace to run your application
@@ -47,13 +48,25 @@ kubectl create namespace development
    ```
    kubectl apply -f nginx-deployment.yaml
    ```
+
    - Include the securityContext
 
-   [https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod)
+   ```
+   docker pull busybox:1.28
+   kind load docker-image busybox:1.28
+   ```
 
+   [https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod)
+  ```
         - allowPrivilegeEscalation: false
         - runAsNonRoot: true
         - readOnlyRootFilesystem: true
+  ```
+  
+    ```
+    kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
+    ```
+
    - Add liveness and Readiness probes
 
    ```https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe```
