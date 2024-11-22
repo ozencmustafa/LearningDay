@@ -138,29 +138,28 @@ kubectl create namespace development
    kubectl top pod memory-demo --namespace=mem-example
 
    ```
-   
+
    ### Specify pod anti-affinity rules
 
-   ```https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases```
+   [https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases)
  
 ## 4. Create a Secret to pass to your application
 
-```https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data```
+[https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data)
 
-   ### add the secret as an environment variable
  
 ## 5. Create a ConfigMap to pass values to your application and Retrieve the values from environment variables
 
-```https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-using-configmap-data```
+[https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-using-configmap-data](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-using-configmap-data)
  
 ## 6. Create a Service for your application
 
-```https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service```
+[https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service](https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service)
  
 ## 7. Ensure your application has a Horizontal Pod Autoscaler (HPA)
 
-```https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#create-horizontal-pod-autoscaler```
+[https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#create-horizontal-pod-autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#create-horizontal-pod-autoscaler)
  
 ## 8. Ensure your application has a PodDisruptionBudget
 
-```https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget```
+[https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget)
