@@ -6,7 +6,7 @@
  
 ## 2. Create a Namespace to run your application
 
-```https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace```
+[Creating a new namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace) called "development"
  
 ## 3. Create a Deployment
 
