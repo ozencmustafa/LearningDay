@@ -6,21 +6,46 @@
 
 On macOS via Homebrew
 
-```brew install kind```
+```
+brew install kind
+```
+
+ Default cluster context name is `kind`.
+
+```
+kind create cluster
+```
+
+Docker images pull on your local
+```
+docker pull nginx:1.14.2
+```
+
+Docker images can be loaded into your cluster nodes with:
+
+```
+kind load docker-image nginx:1.14.2
+```
  
 ## 2. Create a Namespace to run your application
 
-Create a new namespace called development. 
+Create a new namespace called development
 
 [https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace)
 
-```kubectl create namespace development```
- 
-## 3. Create a Deployment
+```
+kubectl create namespace development
+```
 
-[https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
+
+## 3. Create a Deployment
+  - Create your config file [nginx-deployment.yaml](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment).
+  [https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
    - Run with 3 replicas
+   ```
+   kubectl apply -f nginx-deployment.yaml
+   ```
    - Include the securityContext
    ```https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod```
         - allowPrivilegeEscalation: false
