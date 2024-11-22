@@ -10,11 +10,13 @@ On macOS via Homebrew
  
 ## 2. Create a Namespace to run your application
 
-[Create a new namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace) called "development"
+Create a new namespace called development.
+[https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace)
  
 ## 3. Create a Deployment
 
-```https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment```
+[https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
+
    - Run with 3 replicas
    - Include the securityContext
    ```https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod```
