@@ -20,12 +20,13 @@ Docker images pull on your local
 ```
 docker pull nginx:1.14.2
 docker pull busybox:1.28
+docker pull registry.k8s.io/goproxy:0.1
 ```
 
 Docker images can be loaded into your cluster nodes with:
 
 ```
-kind load docker-image nginx:1.14.2 busybox:1.28
+kind load docker-image nginx:1.14.2 busybox:1.28 registry.k8s.io/goproxy:0.1
 ```
  
 ## 2. Create a Namespace to run your application
@@ -40,19 +41,19 @@ kubectl create namespace development
 
 
 ## 3. Create a Deployment
-  - Create/check your config file nginx-deployment.yaml.
+  ### Create/check your config file nginx-deployment.yaml.
 
   [https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
    - Run with 3 replicas
 
    ```
-   kubectl apply -f nginx-deployment.yaml
+   kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
    ```
 
-   - Include the securityContext
+   ### Include the securityContext
 
-  Pull the busybox image and load into your cluster
+  Pull the busybox image and load into your cluster. If you pull and loaded in previous steps then skip these pull and load commands.
 
    ```
    docker pull busybox:1.28
@@ -71,14 +72,20 @@ kubectl create namespace development
    kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
    ```
 
-   - Add liveness and Readiness probes
+   ### Add liveness and Readiness probes
+   Pull and load the docker image registry.k8s.io/goproxy:0.1
 
-   ```https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe```
+   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
 
-   - Define resources:
+   ```
+   kubectl apply -f https://k8s.io/examples/pods/probe/tcp-liveness-readiness.yaml
+   ```
+
+   ### Define resources:
         - CPU
         - Memory
-   - Specify pod anti-affinity rules
+   
+   ### Specify pod anti-affinity rules
 
    ```https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases```
  
@@ -86,7 +93,7 @@ kubectl create namespace development
 
 ```https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data```
 
-   - add the secret as an environment variable
+   ### add the secret as an environment variable
  
 ## 5. Create a ConfigMap to pass values to your application and Retrieve the values from environment variables
 
