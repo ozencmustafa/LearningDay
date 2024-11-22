@@ -40,6 +40,7 @@ kubectl create namespace development
 
 ## 3. Create a Deployment
   - Create your config file [nginx-deployment.yaml](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment).
+
   [https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
    - Run with 3 replicas
@@ -47,21 +48,27 @@ kubectl create namespace development
    kubectl apply -f nginx-deployment.yaml
    ```
    - Include the securityContext
-   ```https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod```
+
+   [https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod)
+
         - allowPrivilegeEscalation: false
         - runAsNonRoot: true
         - readOnlyRootFilesystem: true
    - Add liveness and Readiness probes
+
    ```https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe```
+
    - Define resources:
         - CPU
         - Memory
    - Specify pod anti-affinity rules
+
    ```https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases```
  
 ## 4. Create a Secret to pass to your application
 
 ```https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data```
+
    - add the secret as an environment variable
  
 ## 5. Create a ConfigMap to pass values to your application and Retrieve the values from environment variables
