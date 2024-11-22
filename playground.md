@@ -51,7 +51,7 @@ kubectl create namespace development
    ```
 
    - Include the securityContext
-   
+
   Pull the busybox image and load into your cluster. 
 
    ```
@@ -67,9 +67,7 @@ kubectl create namespace development
         - readOnlyRootFilesystem: true
   ```
 
-  ```
-  kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
-  ```
+  ```kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml```
 
    - Add liveness and Readiness probes
 
