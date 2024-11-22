@@ -125,7 +125,19 @@ kubectl create namespace development
    kubectl apply -f https://k8s.io/examples/pods/resource/memory-request-limit.yaml
 
    ```
+   Verify that the Pod Container is running:
 
+   ```
+   kubectl get pod memory-demo --namespace=mem-example
+
+   ```
+
+   Run kubectl top to fetch the metrics for the pod:
+
+   ```
+   kubectl top pod memory-demo --namespace=mem-example
+
+   ```
    
    ### Specify pod anti-affinity rules
 
