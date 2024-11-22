@@ -45,11 +45,14 @@ kubectl create namespace development
   [https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
 
    - Run with 3 replicas
+
    ```
    kubectl apply -f nginx-deployment.yaml
    ```
 
    - Include the securityContext
+   
+  Pull the busybox image and load into your cluster. 
 
    ```
    docker pull busybox:1.28
@@ -57,15 +60,16 @@ kubectl create namespace development
    ```
 
    [https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod)
+
   ```
         - allowPrivilegeEscalation: false
         - runAsNonRoot: true
         - readOnlyRootFilesystem: true
   ```
-  
-    ```
-    kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
-    ```
+
+  ```
+  kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
+  ```
 
    - Add liveness and Readiness probes
 
