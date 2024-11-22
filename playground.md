@@ -79,7 +79,12 @@ kubectl create namespace development
    ```
    wget https://k8s.io/examples/pods/probe/exec-liveness.yaml
    ```
+   
    Update the image to busybox:1.28 in exec-liveness.yaml file.
+
+   ```
+   vi exec-liveness.yaml
+   ```
 
    Create the Pod:
    ```
@@ -92,7 +97,7 @@ kubectl create namespace development
 
  
    Define a TCP liveness probe:
-   
+
    [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
 
    ```
