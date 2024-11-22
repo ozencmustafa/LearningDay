@@ -141,6 +141,38 @@ kubectl create namespace development
 
    ### Specify pod anti-affinity rules
 
+   In the following example Deployment for the Redis cache, the replicas get the label app=store. The podAntiAffinity rule tells the scheduler to avoid placing multiple replicas with the app=store label on a single node. This creates each cache in a separate node.
+
+   ```
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: redis-cache
+    spec:
+      selector:
+        matchLabels:
+          app: store
+      replicas: 3
+      template:
+        metadata:
+          labels:
+            app: store
+        spec:
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - store
+                topologyKey: "kubernetes.io/hostname"
+          containers:
+          - name: redis-server
+            image: redis:3.2-alpine
+   ```
+
    [https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases)
  
 ## 4. Create a Secret to pass to your application
