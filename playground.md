@@ -108,8 +108,24 @@ kubectl create namespace development
    ```
 
    ### Define resources:
-        - CPU
-        - Memory
+    - CPU
+    - Memory
+
+   Specify a memory request and a memory limit
+
+   [https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/#specify-a-memory-request-and-a-memory-limit](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/#specify-a-memory-request-and-a-memory-limit)
+
+
+   ```
+   docker pull polinux/stress
+   kind load docker-image polinux/stress
+   ```
+   
+   ```
+   kubectl apply -f https://k8s.io/examples/pods/resource/memory-request-limit.yaml
+
+   ```
+
    
    ### Specify pod anti-affinity rules
 
