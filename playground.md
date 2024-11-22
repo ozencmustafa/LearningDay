@@ -92,6 +92,7 @@ kubectl create namespace development
 
  
    Define a TCP liveness probe:
+   
    [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
 
    ```
