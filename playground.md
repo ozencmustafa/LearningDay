@@ -21,12 +21,13 @@ Docker images pull on your local
 docker pull nginx:1.14.2
 docker pull busybox:1.28
 docker pull registry.k8s.io/goproxy:0.1
+docker pull registry.k8s.io/busybox
 ```
 
 Docker images can be loaded into your cluster nodes with:
 
 ```
-kind load docker-image nginx:1.14.2 busybox:1.28 registry.k8s.io/goproxy:0.1
+kind load docker-image nginx:1.14.2 busybox:1.28 registry.k8s.io/goproxy:0.1 registry.k8s.io/busybox
 ```
  
 ## 2. Create a Namespace to run your application
@@ -67,14 +68,23 @@ kubectl create namespace development
     - runAsNonRoot: true
     - readOnlyRootFilesystem: true
    ```
-
+   
    ```
    kubectl apply -f https://k8s.io/examples/pods/security/security-context.yaml
    ```
 
    ### Add liveness and Readiness probes
-   Pull and load the docker image registry.k8s.io/goproxy:0.1
+   Pull and load the docker images registry.k8s.io/goproxy:0.1 and registry.k8s.io/busybox
+   
+   Define a liveness command as below.
+   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
 
+   Create the Pod:
+   ```
+   kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
+   ```
+ 
+   Define a TCP liveness probe:
    [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
 
    ```
