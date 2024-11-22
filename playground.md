@@ -10,8 +10,11 @@ On macOS via Homebrew
  
 ## 2. Create a Namespace to run your application
 
-Create a new namespace called development.
+Create a new namespace called development. 
+
 [https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace)
+
+```kubectl create namespace development```
  
 ## 3. Create a Deployment
 
