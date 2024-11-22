@@ -79,7 +79,7 @@ kubectl create namespace development
    ```
    wget https://k8s.io/examples/pods/probe/exec-liveness.yaml
    ```
-   
+
    Update the image to busybox:1.28 in exec-liveness.yaml file.
 
    ```
@@ -90,6 +90,9 @@ kubectl create namespace development
    ```
    kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
    ```
+   
+   In this scenario liveness probe checks if /tmp/healty file exists with periodSeconds parameter which is 5 seconds. 
+   initialDelaySeconds field tells the kubelet that it should wait 5 secoinds before performing the first probe.
 
    For more details see below
 
