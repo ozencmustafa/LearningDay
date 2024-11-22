@@ -74,16 +74,22 @@ kubectl create namespace development
    ```
 
    ### Add liveness and Readiness probes
-   Pull and load the docker images registry.k8s.io/goproxy:0.1 and registry.k8s.io/busybox
-   
-   Define a liveness command as below.
-   
-   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
+   Download the deployment yaml file.
+
+   ```
+   wget https://k8s.io/examples/pods/probe/exec-liveness.yaml
+   ```
+   Update the image to busybox:1.28 in exec-liveness.yaml file.
 
    Create the Pod:
    ```
    kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
    ```
+
+   For more details see below
+
+   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
+
  
    Define a TCP liveness probe:
    [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe)
