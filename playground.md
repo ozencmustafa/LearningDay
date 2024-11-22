@@ -77,6 +77,7 @@ kubectl create namespace development
    Pull and load the docker images registry.k8s.io/goproxy:0.1 and registry.k8s.io/busybox
    
    Define a liveness command as below.
+   
    [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
 
    Create the Pod:
