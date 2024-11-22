@@ -74,7 +74,10 @@ kubectl create namespace development
    ```
 
    ### Add liveness and Readiness probes
-   Download the deployment yaml file.
+
+   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
+
+   Download the deployment yaml file and update image.
 
    ```
    wget https://k8s.io/examples/pods/probe/exec-liveness.yaml
@@ -93,11 +96,6 @@ kubectl create namespace development
    
    In this scenario liveness probe checks if /tmp/healty file exists with periodSeconds parameter which is 5 seconds. 
    initialDelaySeconds field tells the kubelet that it should wait 5 secoinds before performing the first probe.
-
-   For more details see below
-
-   [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
-
  
    Define a TCP liveness probe:
 
@@ -141,6 +139,8 @@ kubectl create namespace development
 
    ### Specify pod anti-affinity rules
 
+   [https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases)
+
    In the following example Deployment for the Redis cache, the replicas get the label app=store. The podAntiAffinity rule tells the scheduler to avoid placing multiple replicas with the app=store label on a single node. This creates each cache in a separate node.
 
    ```
@@ -172,8 +172,6 @@ kubectl create namespace development
           - name: redis-server
             image: redis:3.2-alpine
    ```
-
-   [https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases)
  
 ## 4. Create a Secret to pass to your application
 
