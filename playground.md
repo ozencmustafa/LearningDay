@@ -2,11 +2,15 @@
  
 ## 1. Spin up a k8s cluster using Kind
 
-```https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster```
+[https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster](https://kind.sigs.k8s.io/docs/user/quick-start#creating-a-cluster)
+
+On macOS via Homebrew
+
+```brew install kind```
  
 ## 2. Create a Namespace to run your application
 
-[Creating a new namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace) called "development"
+[Create a new namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace) called "development"
  
 ## 3. Create a Deployment
 
