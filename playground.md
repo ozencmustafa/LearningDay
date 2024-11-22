@@ -177,6 +177,40 @@ kubectl create namespace development
 
 [https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data)
 
+Define an environment variable as a key-value pair in a Secret:
+
+```
+ kubectl create secret generic backend-user --from-literal=backend-username='backend-admin'
+```
+
+Assign the backend-username value defined in the Secret to the SECRET_USERNAME environment variable in the Pod specification.
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-single-secret
+spec:
+  containers:
+  - name: envars-test-container
+    image: nginx
+    env:
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: backend-user
+          key: backend-username
+```
+
+```
+kubectl create -f https://k8s.io/examples/pods/inject/pod-single-secret-env-variable.yaml
+```
+
+In your shell, display the content of SECRET_USERNAME container environment variable.
+
+```
+kubectl exec -i -t env-single-secret -- /bin/sh -c 'echo $SECRET_USERNAME'
+```
+
  
 ## 5. Create a ConfigMap to pass values to your application and Retrieve the values from environment variables
 
